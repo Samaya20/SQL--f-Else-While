@@ -22,7 +22,10 @@ SELECT * FROM CutReqemlerPrint();
 
 
 -- Task 2. Authorların sayını Authors adlı dəyişəndə saxlayın, daha sonra bu dəyişəni 5ə vuraraq
--- ekrana çıxarınCREATE PROCEDURE CalculateAuthors
+-- ekrana çıxarın
+
+
+CREATE PROCEDURE CalculateAuthors
 AS
 BEGIN
     DECLARE @authorCount int;
@@ -31,8 +34,15 @@ BEGIN
 
     SELECT @authorCount * 5 AS Result;
 END;
-EXEC CalculateAuthors;
--- Task 3. 5 rəqəmli ədədin polindrom olub olmadığını tapınCREATE FUNCTION PolindromTest(@number int)
+
+
+EXEC CalculateAuthors;
+
+
+-- Task 3. 5 rəqəmli ədədin polindrom olub olmadığını tapın
+
+
+CREATE FUNCTION PolindromTest(@number int)
 RETURNS nvarchar(5)
 AS
 BEGIN
@@ -50,8 +60,14 @@ END;
 
 SELECT dbo.PolindromTest(12321) AS Result;
 
--- Task 4. Istifadəçinin daxil etdiyi aralıqda (məs 10 və 30) cüt rəqəmlərin cəmini tək rəqəmlərin
--- hasilini hesablayan proqram yazın.CREATE PROCEDURE CutTekCalc
+
+
+-- Task 4. Istifadəçinin daxil etdiyi aralıqda (məs 10 və 30) cüt rəqəmlərin cəmini tək rəqəmlərin
+-- hasilini hesablayan proqram yazın.
+
+
+
+CREATE PROCEDURE CutTekCalc
 	@start int,
 	@end int
 AS
@@ -72,8 +88,16 @@ BEGIN
 
     SELECT CutCem = @cutCem, TekHasil = @tekHasil;
 END;
-EXEC CutTekCalc @start = 10, @end = 30;
--- Task 5. CREATE PROCEDURE us_calcFact
+
+
+EXEC CutTekCalc @start = 10, @end = 30;
+
+
+
+-- Task 5. Ədədin faktorialını tapan proqram yazın. (Məsələn (! - faktorial işarəsidir), 5! = 1*2*3*4*5)
+
+
+CREATE PROCEDURE us_calcFact
                  @number int
 AS
 BEGIN
@@ -96,4 +120,6 @@ BEGIN
 END;
 
 
-EXEC us_calcFact 5;
+EXEC us_calcFact 5;
+
+
